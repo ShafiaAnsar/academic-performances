@@ -2,12 +2,14 @@ import Image from "next/image"
 import { creators } from "@/db"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { badge, us } from "../../../../public/images"
+import { badge, star, us } from "../../../../public/images"
 import { CheckCircle } from "lucide-react"
+import { RiSeedlingLine } from "react-icons/ri"
+import { PiHexagonDuotone } from "react-icons/pi"
 export function CreatorTable() {
   return (
-    <div className="mt-8 overflow-x-auto w-full rounded-lg border bg-white">
-      <Table className="w-full overflow-x-auto" >
+    <div className="mt-8 overflow-x-auto max-w-[90vw]  rounded-lg border bg-white">
+      <Table className=" overflow-x-auto" >
         <TableHeader>
           <TableRow>
             <TableHead className="w-[300px]">Creators 20/9748</TableHead>
@@ -27,11 +29,13 @@ export function CreatorTable() {
                 <div className="flex items-center gap-3">
                   <span className="text-gray-500">{creator.rank}#</span>
                   <div className="relative">
-                    <Avatar>
-                      <AvatarImage src={creator.avatar.src} />
+                    <Avatar className="w-15 h-15">
+                      <AvatarImage  src={creator.avatar.src} />
                       <AvatarFallback>{creator.name[0]}</AvatarFallback>
                     </Avatar>
-                    <span className="absolute -right-1 -top-1 text-purple-500">★</span>
+                    <span className="absolute -right-1 -bottom-0 text-purple-500">
+                      <Image src={star} alt="Star" width={16} height={16} />
+                    </span>
                   </div>
                   <div>
                     <h4 className="font-medium">{creator.name}</h4>
@@ -46,33 +50,30 @@ export function CreatorTable() {
                 </div>
               </TableCell>
               <TableCell className="p-4">
-                <div className="flex items-center gap-1">
-                  <div className="flex -space-x-1">
-                    <div className="h-6 w-6 rounded-full bg-blue-100" />
-                    <div className="h-6 w-6 rounded-full bg-purple-100" />
-                    <div className="h-6 w-6 rounded-full bg-yellow-100" />
-                    <div className="h-6 w-6 rounded-full bg-cyan-100" />
-                  </div>
+                <div className="flex items-center gap-2">
+                <div className="flex">
+                <PiHexagonDuotone className="-mr-2" size={16} style={{ color: '#3fe4fc' }} />
+                <PiHexagonDuotone className="-mr-2" size={16} style={{ color: '#fdcc47' }} />
+                <PiHexagonDuotone className="-mr-2" size={16} style={{ color: '#9cb6dc' }} />
+                <PiHexagonDuotone className="-mr-2" size={16} style={{ color: '#ffae75' }} />
+              </div>
                   <span>{creator.totalBadges}</span>
                 </div>
               </TableCell>
               <TableCell className="p-4">
                 <div className="flex gap-2">
                   {Object.entries(creator.badgesByRarity).map(([rarity, count]) => (
-                    <div key={rarity} className="flex items-center gap-1 rounded-lg border px-2 py-1 text-sm">
-                      <span
-                        className={`h-2 w-2 rounded-full ${
-                          rarity === "common"
-                            ? "bg-orange-400"
-                            : rarity === "rare"
-                              ? "bg-gray-400"
-                              : rarity === "epic"
-                                ? "bg-yellow-400"
-                                : "bg-cyan-400"
-                        }`}
-                      />
-                      <span>{count}</span>
-                    </div>
+                   <div key={rarity} className="flex items-center">
+                   <PiHexagonDuotone 
+                     size={16}
+                     style={{ color: rarity === 'common' ? '#ffae75' :
+                       rarity === 'rare' ? '#9cb6dc' :
+                       rarity === 'epic' ? '#fdcc47' :
+                       '#3fe4fc' // legendary
+                     }}
+                   />
+                   <span className="text-sm">{count}</span>
+                 </div>
                   ))}
                 </div>
               </TableCell>
@@ -90,10 +91,24 @@ export function CreatorTable() {
                 </span>
               </TableCell>
               <TableCell className="p-4">
-                <button className="flex items-center gap-2 rounded-md border px-4 py-2 text-sm hover:bg-gray-50">
-                  <Image src="/placeholder.svg" alt="Spotlight" width={16} height={16} />
-                  Spotlight
-                </button>
+                  {/* Spotlight Button */}
+          <button 
+            className="w-full flex items-center justify-center gap-[4px] cursor-pointer rounded-md p-2 text-sm border border-transparent"
+            style={{
+              background: 'linear-gradient(white, white) padding-box, linear-gradient(to right, #f42c51, #ffc501) border-box'
+            }}
+          >
+            <RiSeedlingLine className="[&>path]:fill-[url(#gradient)]" />
+            <svg width="0" height="0">
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style={{stopColor: '#f42c51'}} />
+                <stop offset="100%" style={{stopColor: '#ffc501'}} />
+              </linearGradient>
+            </svg>
+            <span className="text-gray-600">
+              Spotlight
+            </span>
+          </button>
               </TableCell>
             </TableRow>
           ))}

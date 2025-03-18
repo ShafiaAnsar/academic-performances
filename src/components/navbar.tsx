@@ -4,7 +4,7 @@ import { Separator } from "./ui/separator"
 
 export function Navbar({ title }: { title: string }) {
   return (
-    <div className="flex justify-between items-center bg-white p-6 border-b ">
+    <div className="flex justify-between items-center   bg-white p-6 border-b ">
       <h1 className="text-lg font-semibold">{title}</h1>
       <div className="flex items-center gap-4">
         <Link href="/sign-in" className="text-sm font-medium bg-[#f4f7ff] px-4 py-2 text-[#6542ea] rounded-md hover:bg-[#ede9fe]">

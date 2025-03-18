@@ -171,14 +171,33 @@ export const creators = [
     },
     {
       id: 2,
-      name: "Felipe Dalcarobo",
-      description: "Empowering Leader in Customer Success and Mental Health Advocate",
+      name: "Cristiano Ronaldo",
+      description: "Global Football Icon and Influencer",
       image: person2,
       country: "🇧🇷",
       authority: "3,021",
       hasSpotlight: true,
     },
-    // Add more spotlights...
+    {
+      id: 3,
+      name: "Kylie Jenner",
+      description: "Beauty Mogul and Fashion Influencer",
+      image: person3,
+      country: "🇧🇷",
+      authority: "3,021",
+      hasSpotlight: true,
+    },
+    {
+      id: 4,
+      name: "Lionel Messi",
+      description: "Legendary Footballer and Global Ambassador",
+      image: person4,
+      country: "🇧🇷",
+      authority: "3,021",
+      hasSpotlight: true,
+    },
+    
+      
   ]
   export const industries = [
     "All Industries",

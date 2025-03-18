@@ -1,12 +1,17 @@
 import Image from "next/image"
 import { creators } from "@/db"
-import { badge, us } from "../../../../public/images"
+import { badge, star, us } from "../../../../public/images"
+import { RiSeedlingLine } from "react-icons/ri";
+import { PiHexagonDuotone } from "react-icons/pi";
+
 export function CreatorGrid() {
   return (
-    <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+    <div className="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 max-w-[90vw]">
       {creators.map((creator) => (
-        <div key={creator.id} className="overflow-hidden rounded-lg border bg-white p-4 shadow-sm">
-          <div className="relative mb-4">
+        <div key={creator.id} className="relative bg-white shadow-lg rounded-xl p-4 w-fit text-center border flex flex-col gap-4">
+          
+          {/* Avatar and Rank */}
+          <div className="flex items-center gap-10 -mt-8">  
             <span
               className={`text-lg font-bold ${
                 creator.rank === 1
@@ -20,50 +25,89 @@ export function CreatorGrid() {
             >
               {creator.rank}#
             </span>
-          </div>
-
-          <div className="flex items-start gap-3">
-            <div className="relative">
+            <div className="relative w-14 h-14">
               <Image
                 src={creator.avatar || "/placeholder.svg"}
                 alt={creator.name}
-                width={50}
-                height={50}
-                className="rounded-full"
+                width={56}
+                height={56}
+                className="rounded-full object-cover border-2 border-white shadow"
               />
-              <div className="absolute -right-1 -top-1 text-sm text-purple-500">★</div>
-            </div>
-            <div>
-              <h3 className="font-semibold">{creator.name}</h3>
-              <p className="text-sm text-gray-600">{creator.description.slice(0, 20)}...</p>
+              {/* Star Badge */}
+              <div className="absolute bottom-0 right-0">
+                <Image src={star} alt="Star" width={16} height={16} />
+              </div>
             </div>
           </div>
 
-          <div className="mt-4 flex items-center gap-2">
+          {/* Name & Description */}
+          <div className="mt-2">
+            <h3 className="font-semibold text-center break-words max-w-[90%] mx-auto">
+              {creator.name}
+            </h3>
+            <p className="text-sm text-gray-500 truncate">{creator.description.slice(0, 20)}...</p>
+          </div>
+
+          {/* Authority & Growth */}
+          <div className="flex items-center justify-center gap-2">
             <div className="flex items-center gap-1">
-              <Image src={badge} alt="Authority" width={30} height={30}  />
-              <span>{creator.authority}</span>
+              <Image src={badge} alt="Authority" width={20} height={20} />
+              <span className="text-sm font-medium">{creator.authority}</span>
             </div>
-            <Image src={us} alt="Country" width={30} height={30}  />
-            <span className="text-green-500">{creator.growth}</span>
+            <Image src={us} alt="Country" width={20} height={20} className="rounded-sm" />
+            <span className="text-green-500 bg-[#dcfce7] px-2 py-1 text-xs rounded-full">
+              {creator.growth}
+            </span>
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-2">
-            {Object.entries(creator.badgesByRarity).map(([color, count]) => (
-              <div key={color} className="flex items-center gap-1 rounded-full bg-gray-100 px-2 py-1 text-xs">
-                <span className={`h-2 w-2 rounded-full bg-${color}-400`} />
-                <span>{count}</span>
+          {/* Badges Section */}
+          <div className="flex items-center justify-center ">
+            <div className="flex items-center gap-3">
+              <div className="flex relative -rotate-12">
+                <PiHexagonDuotone className="absolute top-0 left-0" size={10} style={{ color: '#3fe4fc' }} />
+                <PiHexagonDuotone className="absolute top-0 right-0" size={10} style={{ color: '#fdcc47' }} />
+                <PiHexagonDuotone className="absolute bottom-0 left-0" size={10} style={{ color: '#9cb6dc' }} />
+                <PiHexagonDuotone className="absolute bottom-0 right-0" size={10} style={{ color: '#ffae75' }} />
+
+              </div>
+            <span className="text-sm font-medium">{creator.totalBadges}</span>
+            </div>
+            {Object.entries(creator.badgesByRarity).map(([rarity, count]) => (
+              <div key={rarity} className="flex items-center">
+                <PiHexagonDuotone 
+                  size={16}
+                  style={{ color: rarity === 'common' ? '#ffae75' :
+                    rarity === 'rare' ? '#9cb6dc' :
+                    rarity === 'epic' ? '#fdcc47' :
+                    '#3fe4fc' // legendary
+                  }}
+                />
+                <span className="text-sm">{count}</span>
               </div>
             ))}
           </div>
 
-          <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-md border py-2 text-sm hover:bg-gray-50">
-            <Image src="/placeholder.svg" alt="Spotlight" width={16} height={16} />
-            Spotlight
+          {/* Spotlight Button */}
+          <button 
+            className="w-full flex items-center cursor-pointer justify-center gap-2 rounded-md py-2 text-sm border border-transparent"
+            style={{
+              background: 'linear-gradient(white, white) padding-box, linear-gradient(to right, #f42c51, #ffc501) border-box'
+            }}
+          >
+            <RiSeedlingLine className="[&>path]:fill-[url(#gradient)]" />
+            <svg width="0" height="0">
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style={{stopColor: '#f42c51'}} />
+                <stop offset="100%" style={{stopColor: '#ffc501'}} />
+              </linearGradient>
+            </svg>
+            <span className="text-gray-600">
+              Spotlight
+            </span>
           </button>
+
         </div>
       ))}
     </div>
   )
 }
-

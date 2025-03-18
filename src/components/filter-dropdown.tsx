@@ -15,7 +15,7 @@ interface FilterDropdownProps {
   onSelect?: (option: string) => void
 }
 
-export function FilterDropdown({ label, options, icon, selected = options[0], onSelect }: FilterDropdownProps) {
+export function FilterDropdown({  options, icon, selected = options[0], onSelect }: FilterDropdownProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState(selected)
 

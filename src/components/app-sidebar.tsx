@@ -1,6 +1,7 @@
 'use client'
 import { ChartNoAxesColumn, Star } from "lucide-react"
 import { useState } from "react"
+import { usePathname } from 'next/navigation'
 import logo from "../../public/logo.png"
 import {
   Sidebar,
@@ -28,18 +29,19 @@ const items = [
 
 export function AppSidebar() {
   const [isHovered, setIsHovered] = useState(false)
+  const pathname = usePathname()
 
   return (
     <Sidebar 
       collapsible="icon"
-      className={isHovered ? "" : "w-[90px]"}
+      className={`bg-white ${isHovered ? "" : "w-[90px]"}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <SidebarContent className="p-0">
         <SidebarGroup className="p-0">
           <SidebarGroupContent>
-            <SidebarMenu className="p-2">
+            <SidebarMenu className="p-2 ">
               <Image src={logo} alt="logo" width={100} height={100} />
               {items.map((item) => (
                 <SidebarMenuItem 
@@ -48,11 +50,12 @@ export function AppSidebar() {
                 >
                   <SidebarMenuButton 
                     asChild
-                    className="w-full transition-colors hover:text-white hover:bg-[#6543eb] hover:rounded-md"
+                    isActive={pathname.startsWith(item.url)}
+                    className={`${isHovered?'w-full' : 'w-fit mx-auto'} transition-colors hover:rounded-md`}
                   >
-                    <a href={item.url} className="flex items-center gap-2 p-2">
-                      <item.icon className="w-6 h-6" />
-                      <span className={`${!isHovered ? 'hidden' : 'block'} text-sm`}>
+                    <a href={item.url} className="flex items-center gap-2 px-4 py-2">
+                      <item.icon className={`w-6 h-6 ${pathname.startsWith(item.url) ? 'text-white' : ''}`} />
+                      <span className={`${!isHovered ? 'hidden' : 'block'} text-sm ${pathname.startsWith(item.url) ? 'text-white' : ''}`}>
                         {item.title}
                       </span>
                     </a>

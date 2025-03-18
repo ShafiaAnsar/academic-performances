@@ -5,6 +5,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -80,6 +81,11 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --bg-creator-gradient: linear-gradient(to right,#f42c51, #ffc501);
+  --color-bg: linear-gradient(#fff, #fff) padding-box, var(--bg-creator-gradient) border-box;
+  --color-border: transparent;
+    --color-active: transparent;
+  --gray-color:#6b7b8f
 }
 
 .dark {
@@ -115,6 +121,48 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+}
+.slick-dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 6px; /* Adjust spacing between dots */
+  list-style: none;
+  padding: 0;
+}
+
+.slick-dots li {
+  margin: 0 5px; /* Adjust margin if needed */
+  list-style: none;
+}
+
+/* Remove extra inner circles */
+.slick-dots li button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.16);
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Remove the default Slick styling causing the extra circles */
+.slick-dots li button::before {
+  content: ''; /* Remove the default dot */
+  display: none;
+}
+
+/* Active dot styling */
+.slick-dots li.slick-active button {
+  background-color: #8882f3;
+  transform: scale(1.2);
 }
 
 @layer base {

@@ -2,10 +2,14 @@ import { Spotlight } from "./components/spotlight"
 import { CreatorGrid } from "./components/creator-grid"
 import { CreatorTable } from "./components/creator-table"
 import { Navbar } from "@/components/navbar"    
+import { star } from "../../../public/images"
+import Image from "next/image"
 export default function HallOfFame() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 ">
+      <div className="max-w-[94%] ">
      <Navbar title="Hall of Fame"/>
+      </div>
 
       <main className="container mx-auto px-4 py-8">
         <div className="text-center">
@@ -18,16 +22,16 @@ export default function HallOfFame() {
             <div className="h-2 w-2 rounded-full bg-green-400" />
             <h2 className="text-xl font-semibold">Recently edited Spotlights</h2>
           </div>
-          <Spotlight />
+          <Spotlight />     
         </section>
 
         <section className="mt-16">
           <div className="flex items-center gap-2">
-            <div className="text-xl text-purple-500">★</div>
+            <Image src={star} alt="Star" width={24} height={24} />
             <h2 className="text-xl font-semibold">All verified Favikon Creators</h2>
           </div>
           <CreatorGrid />
-          <CreatorTable />
+        <CreatorTable />
         </section>
       </main>
     </div>
