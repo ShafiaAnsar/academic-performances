@@ -27,16 +27,16 @@ const colorSchemes = [
     border: "border-purple-200"
   },
   {
-    bg: "bg-rose-100",
-    text: "text-rose-900",
-    accent: "text-rose-700",
-    border: "border-rose-200"
+    bg: "bg-yellow-100",
+    text: "text-yellow-900",
+    accent: "text-yellow-700",
+    border: "border-yellow-200"
   },
   {
-    bg: "bg-amber-100",
-    text: "text-amber-900",
-    accent: "text-amber-700",
-    border: "border-amber-200"
+    bg: "bg-orange-100",
+    text: "text-orange-900",
+    accent: "text-orange-700",
+    border: "border-orange-200"
   }
 ];
 
@@ -45,7 +45,7 @@ export function Spotlight({}) {
     const { onClick } = props;
     return (
       <div
-        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-md cursor-pointer z-10"
+        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-md shadow-md cursor-pointer z-10"
         onClick={onClick}
       >
         <ArrowRight className="text-gray-600" />
@@ -57,7 +57,7 @@ export function Spotlight({}) {
     const { onClick } = props;
     return (
       <div
-        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-md cursor-pointer z-10"
+        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-md shadow-md cursor-pointer z-10"
         onClick={onClick}
       >
         <ArrowLeft className="text-gray-600" />
@@ -79,19 +79,32 @@ export function Spotlight({}) {
   };
 
   return (
-    <div className="relative mt-6 max-w-[90%] mx-auto">
+    <div className="relative mt-6 md:max-w-[85%] max-w-[95%] mx-auto">
+      {/* Left shadow overlay */}
+      <div className="absolute left-0 top-0 bottom-0 w-6 z-10 pointer-events-none" 
+           style={{ 
+             background: 'linear-gradient(to right, rgba(249, 250, 251, 0.9), rgba(249, 250, 251, 0))' 
+           }}>
+      </div>
+      {/* Right shadow overlay */}
+      <div className="absolute right-0 top-0 bottom-0 w-6 z-10 pointer-events-none" 
+           style={{ 
+             background: 'linear-gradient(to left, rgba(249, 250, 251, 0.9), rgba(249, 250, 251, 0))' 
+           }}>
+      </div>
+      
       <Slider {...settings}>
         {spotlights.map((spotlight) => {
           // Get a random color scheme
           const colorScheme = colorSchemes[Math.floor(Math.random() * colorSchemes.length)];
           
           return (
-            <div key={spotlight.id} className="px-2">
-              <div className={`flex flex-col md:flex-row items-center justify-center gap-4 min-h-[300px] ${colorScheme.bg} rounded-lg p-4 shadow-lg`}>
+            <div key={spotlight.id} className="px-2 ">
+              <div className={`flex flex-col md:flex-row items-center justify-center gap-4 h-[400px] md:h-[250px] my-3 ${colorScheme.bg} rounded-lg p-4 shadow-lg`}>
                 <span className="relative flex-shrink-0">
                   <Image 
                     src={spotlight.image} 
-                    className="rounded-full w-[150px] h-[150px] md:w-[200px] md:h-[200px]" 
+                    className="rounded-full w-[80px] h-[80px] sm:w-[130px] sm:h-[130px] lg:w-[200px] lg:h-[200px]" 
                     alt={spotlight.name} 
                     width={200} 
                     height={200} 
@@ -99,17 +112,17 @@ export function Spotlight({}) {
                   <Image 
                     src={star} 
                     alt="Star" 
-                    width={32} 
-                    height={32} 
-                    className="absolute bottom-3 right-0" 
+                    width={100} 
+                    height={100} 
+                    className="sm:w-[32px] sm:h-[32px] w-[20px] h-[20px] absolute bottom-3 right-0" 
                   />
                 </span>
                 <div className="flex flex-col gap-2">
-                  <span className={`text-2xl md:text-4xl lg:text-[48px] font-[800] ${colorScheme.text}`}>
+                  <span className={`text-xl md:text-3xl lg:text-4xl lg:text-[48px] font-[800] ${colorScheme.text}`}>
                     {spotlight.name}
                   </span>
                   <span className={`text-base md:text-[20px] font-[600] ${colorScheme.accent}`}>
-                    {spotlight.description}
+                    {spotlight.description.slice(0,30)}...
                   </span>
                   <div className="flex flex-wrap items-center gap-2">
                     <Image src={us} alt="Country" width={24} height={24} />

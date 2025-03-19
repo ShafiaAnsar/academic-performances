@@ -30,7 +30,7 @@ export function FilterDropdown({  options, icon, selected = options[0], onSelect
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="flex items-center gap-2 bg-white border rounded-md px-3 py-2 h-10">
+        <Button variant="outline" className="flex items-center  gap-1  border rounded-md px-2 py-1 h-10">
           {icon && <span className="mr-1">{icon}</span>}
           {selectedOption}
           {isOpen ? <ChevronUp className="h-4 w-4 opacity-50" /> : <ChevronDown className="h-4 w-4 opacity-50" />}

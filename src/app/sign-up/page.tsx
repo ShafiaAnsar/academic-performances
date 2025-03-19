@@ -13,11 +13,11 @@ export default function SignUp() {
         <Navbar title="Sign up" />
 
         <div className="flex flex-col md:flex-row  ">
-          <div className=" mx-auto w-full px-6 py-8 md:w-[50%] ">
+          <div className=" mx-auto w-full p-8 md:w-[50%] ">
             <h2 className="text-2xl font-bold mb-8 text-center">Sign up to Favikon</h2>
 
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="firstName" className="text-sm font-medium">
                     First Name
@@ -38,7 +38,7 @@ export default function SignUp() {
                 </label>
                 <Input id="email" type="email" placeholder="example@gmail.com" className="w-full" />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="phone" className="text-sm font-medium">
                     Phone number (optional)
@@ -57,7 +57,7 @@ export default function SignUp() {
               </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="country" className="text-sm font-medium">
                     Country
@@ -122,7 +122,7 @@ export default function SignUp() {
                 <Checkbox id="terms" className="mt-1" />
                 <label htmlFor="terms" className="text-sm leading-none">
                   Accept our{" "}
-                  <Link href="/terms" className="text-[#6542ea] hover:underline">
+                  <Link href="#" className="text-[var(--color-primary)] hover:underline">
                     Terms and Conditions
                   </Link>
                 </label>
@@ -135,7 +135,7 @@ export default function SignUp() {
                 </label>
               </div>
 
-              <Button className="w-full cursor-pointer bg-[#6542ea] hover:bg-[#5a3bd3] text-white rounded-md">Create account for Free</Button>
+              <Button className="w-full cursor-pointer bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/70 text-white rounded-md">Create account for Free</Button>
 
               <div className="relative my-4">
                 <div className="absolute inset-0 flex items-center">
@@ -152,7 +152,7 @@ export default function SignUp() {
               <div className="text-center mt-6">
                 <p className="text-sm text-gray-600">
                   Already have an account?{" "}
-                  <Link href="/sign-in" className="text-[#6542ea] hover:underline">
+                  <Link href="/sign-in" className="text-[var(--color-primary)] hover:underline">
                     Sign in
                   </Link>
                 </p>

@@ -7,8 +7,8 @@ import { AppSidebar } from "@/components/app-sidebar"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Favikon",
-  description: "Empowering Businesses, Elevating Creators",
+  title: "Uniranks Academics",
+  description: "Uniranks Academics is a platform that helps students find the best universities and courses for their needs.",
 }
 
 export default function RootLayout({

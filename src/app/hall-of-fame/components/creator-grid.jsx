@@ -6,12 +6,12 @@ import { PiHexagonDuotone } from "react-icons/pi";
 
 export function CreatorGrid() {
   return (
-    <div className="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 max-w-[90vw]">
+    <div className="mt-6 flex flex-wrap gap-4 items-center justify-center max-w-[90vw]">
       {creators.map((creator) => (
-        <div key={creator.id} className="relative bg-white shadow-lg rounded-xl p-4 w-fit text-center border flex flex-col gap-4">
+        <div key={creator.id} className="relative bg-white shadow-lg rounded-xl p-4 sm:w-[200px]  w-full text-center border flex flex-col gap-4">
           
           {/* Avatar and Rank */}
-          <div className="flex items-center gap-10 -mt-8">  
+          <div className="flex items-center -mt-8">  
             <span
               className={`text-lg font-bold ${
                 creator.rank === 1
@@ -25,7 +25,7 @@ export function CreatorGrid() {
             >
               {creator.rank}#
             </span>
-            <div className="relative w-14 h-14">
+            <div className="relative w-14 ml-[35%] sm:ml-[20%] h-14">
               <Image
                 src={creator.avatar || "/placeholder.svg"}
                 alt={creator.name}

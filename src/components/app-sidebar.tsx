@@ -2,7 +2,6 @@
 import { ChartNoAxesColumn, Star } from "lucide-react"
 import { useState } from "react"
 import { usePathname } from 'next/navigation'
-import logo from "../../public/logo.png"
 import {
   Sidebar,
   SidebarContent,
@@ -13,6 +12,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import Image from "next/image"
+import { logo } from "../../public/images"
 // Menu items.
 const items = [
   {
@@ -34,7 +34,7 @@ export function AppSidebar() {
   return (
     <Sidebar 
       collapsible="icon"
-      className={`bg-white ${isHovered ? "" : "w-[90px]"}`}
+      className={`bg-white ${isHovered ? "" : "w-[110px]"} z-50`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -42,11 +42,11 @@ export function AppSidebar() {
         <SidebarGroup className="p-0">
           <SidebarGroupContent>
             <SidebarMenu className="p-2 ">
-              <Image src={logo} alt="logo" width={100} height={100} />
+              <Image src={logo} alt="logo" className={` ${isHovered ? ' w-full' : 'h-[40px]'} object-contain`} width={100} height={100} />
               {items.map((item) => (
                 <SidebarMenuItem 
                   key={item.title} 
-                  className="group"
+                  className="group mt-4"
                 >
                   <SidebarMenuButton 
                     asChild

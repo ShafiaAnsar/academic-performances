@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export function HeroImage() {
   return (
-    <div className="w-full md:w-[50%] bg-[#f83e7b] relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#f83e7b] to-[#f83e7b]/90"></div>
+    <div className="w-full md:w-[50%] bg-[var(--color-primary)] relative overflow-hidden">
+      <div className="absolute inset-0 bg-[var(--color-primary)]"></div>
       <div className="relative h-full flex items-center justify-center p-12">
         <div className="max-w-xl">
           <h2 className="text-4xl font-bold text-white mb-8">

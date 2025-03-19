@@ -40,12 +40,12 @@ export default function SignIn() {
                     Remember me
                   </label>
                 </div>
-                <Link href="/forgot-password" className="text-sm text-[#6542ea] hover:underline">
+                <Link href="/forgot-password" className="text-sm text-[var(--color-primary)] hover:underline">
                   Forgot password?
                 </Link>
               </div>
 
-              <Button className="w-full bg-[#6542ea] cursor-pointer hover:bg-[#5a3bd3] text-white rounded-lg">Sign in</Button>
+              <Button className="w-full bg-[var(--color-primary)] cursor-pointer hover:bg-[var(--color-primary)]/80 text-white rounded-lg">Sign in</Button>
 
               <div className="relative my-6">
                 <div className="absolute inset-0 flex items-center">
@@ -64,7 +64,7 @@ export default function SignIn() {
               <div className="text-center mt-6">
                 <p className="text-sm text-gray-600">
                   You don&apos;t have an account?{" "}
-                  <Link href="/sign-up" className="text-[#6542ea] hover:underline">
+                  <Link href="/sign-up" className="text-[var(--color-primary)] hover:underline">
                     Register for free
                   </Link>
                 </p>

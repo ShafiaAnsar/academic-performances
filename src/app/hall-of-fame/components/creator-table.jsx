@@ -8,8 +8,8 @@ import { RiSeedlingLine } from "react-icons/ri"
 import { PiHexagonDuotone } from "react-icons/pi"
 export function CreatorTable() {
   return (
-    <div className="mt-8 overflow-x-auto max-w-[90vw]  rounded-lg border bg-white">
-      <Table className=" overflow-x-auto" >
+    <div className="mt-8 overflow-x-auto max-w-[87vw]  rounded-lg border bg-white">
+      <Table style={{scrollbarWidth: 'none'}} className="overflow-x-auto" >
         <TableHeader>
           <TableRow>
             <TableHead className="w-[300px]">Creators 20/9748</TableHead>
@@ -33,7 +33,7 @@ export function CreatorTable() {
                       <AvatarImage  src={creator.avatar.src} />
                       <AvatarFallback>{creator.name[0]}</AvatarFallback>
                     </Avatar>
-                    <span className="absolute -right-1 -bottom-0 text-purple-500">
+                    <span className="absolute -right-1 -bottom-0 text-[var(--color-primary)]">
                       <Image src={star} alt="Star" width={16} height={16} />
                     </span>
                   </div>

@@ -4,27 +4,26 @@ import { CreatorTable } from "./components/creator-table"
 import { Navbar } from "@/components/navbar"    
 import { star } from "../../../public/images"
 import Image from "next/image"
+import { Separator } from "@/components/ui/separator"
 export default function HallOfFame() {
   return (
     <div className="min-h-screen bg-gray-50 ">
-      <div className="max-w-[94%] ">
-     <Navbar title="Hall of Fame"/>
-      </div>
+        <Navbar title="Hall of Fame"/>
 
-      <main className="container mx-auto px-4 py-8">
+      <main className=" p-4 lg:p-8">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900">Hall of Fame</h1>
           <p className="mt-2 text-lg text-gray-600">Discover all our verified Favikon Creators</p>
         </div>
 
-        <section className="mt-12">
+        <section className="mt-6 ">
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-green-400" />
             <h2 className="text-xl font-semibold">Recently edited Spotlights</h2>
           </div>
           <Spotlight />     
         </section>
-
+        <Separator className="my-6" />
         <section className="mt-16">
           <div className="flex items-center gap-2">
             <Image src={star} alt="Star" width={24} height={24} />

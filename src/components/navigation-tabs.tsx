@@ -7,23 +7,27 @@ import { LayoutGridIcon, BarChartIcon, MonitorIcon, NetworkIcon } from "lucide-r
 
 const navigationTabs = [
   {
+    id:1,
     label: "Industries & Niches",
     href: "/industry-niches",
     icon: LayoutGridIcon,
   },
   {
+    id:2,
     label: "Rankings",
     href: "/rankings/leaderboard",
     icon: BarChartIcon,
   },
   {
+    id:3,
     label: "Industry Watch",
-    href: "/industry-watch",
+    href: "#",
     icon: MonitorIcon,
   },
   {
+    id:4,
     label: "Network Watch",
-    href: "/network-watch",
+    href: "#",
     icon: NetworkIcon,
   }
 ]
@@ -33,14 +37,14 @@ export function NavigationTabs() {
 
   return (
     <nav className="border-b bg-white border-gray-200">
-      <div className="flex px-6 gap-8">
+      <div className="flex flex-wrap px-6 gap-4 md:gap-8">
         {navigationTabs.map((tab) => (
           <Link
-            key={tab.href}
+            key={tab.id}
             href={tab.href}
             className={cn(
-              "flex items-center gap-2 py-4 text-[15px] font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900",
-              pathname === tab.href && "border-[#6542ea] text-[#6542ea]",
+              "flex items-center gap-2 py-2 text-[13px] md:text-[15px] font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900",
+              pathname === tab.href && "border-[var(--color-primary)] text-[var(--color-primary)]",
             )}
           >
             <tab.icon className="h-5 w-5" />

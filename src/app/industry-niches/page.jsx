@@ -1,35 +1,20 @@
-import Link from "next/link"
-import { Search, Grid, BarChart2, Activity, Network } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Search,  } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import CategoryCard from "./components/category-card"
 import {NavigationTabs} from "@/components/navigation-tabs"
 import { categories } from "../../db"
+import { Navbar } from "@/components/navbar"
 export default function IndustriesNichesPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 ">
       {/* Header */}
-      <header className="border-b bg-white">
-        <div className="container mx-auto flex items-center justify-between p-4">
-          <h1 className="text-xl font-semibold text-gray-800">Industries & Niches</h1>
-          <div className="flex items-center gap-4">
-            <Link href="/sign-in" className="text-indigo-600 hover:text-indigo-800">
-              Sign in
-            </Link>
-            <Button className="bg-indigo-600 hover:bg-indigo-700">Register for free</Button>
-            <Link href="/tutorial" className="text-indigo-600 hover:text-indigo-800">
-              Tutorial
-            </Link>
-          </div>
-        </div>
-      </header>
-
+      <Navbar title="Industries & Niches"/>
       {/* Navigation Tabs */}
       <NavigationTabs/>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        <h2 className="mb-8 text-center text-2xl font-bold text-gray-800">Browse over 600+ Niches</h2>
+      <main className="container mx-auto p-8">
+        <h2 className="mb-8 text-center text-lg sm:text-2xl font-semibold sm:font-bold text-gray-800">Browse over 600+ Niches</h2>
 
         {/* Search Bar */}
         <div className="mb-12 flex justify-center ">
@@ -41,18 +26,18 @@ export default function IndustriesNichesPage() {
 
         {/* Tracked Rankings Section */}
         <section className="mb-8">
-          <div className="flex w-full items-center">
-          <h3 className=" text-xl font-semibold w-[20%] text-gray-800">Your Tracked Rankings</h3>
-          <div className="h-0.5  w-[80%]  bg-gray-200"/>
+          <div className="flex flex-col md:flex-row items-center justify-center w-full ">
+          <h3 className=" md:text-xl text-lg font-semibold md:w-[25%] w-full text-gray-800">Your Tracked Rankings</h3>
+          <div className="h-0.5  md:w-[80%] w-full  bg-gray-200"/>
           </div>
-          <div className="py-8">{/* Empty state or tracked rankings would go here */}</div>
+          {/* <div className="py-8">Empty state or tracked rankings would go here</div> */}
         </section>
 
         {/* All Industries Section */}
         <section>
-          <div className="flex items-center w-full">
-          <h3 className=" text-xl w-[20%] font-semibold text-gray-800">All Industries & Niches</h3>
-          <div className="h-[1px]  w-[80%]  bg-gray-200"/>
+          <div className="flex flex-col md:flex-row w-full items-center">
+          <h3 className=" md:text-xl text-lg   md:w-[20%] w-full font-semibold text-gray-800">All Industries & Niches</h3>
+          <div className="h-[1px]  md:w-[80%] w-full  bg-gray-200"/>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 mt-6 xl:grid-cols-3 gap-6">
             {categories.map((category) => (

@@ -85,7 +85,8 @@
   --color-bg: linear-gradient(#fff, #fff) padding-box, var(--bg-creator-gradient) border-box;
   --color-border: transparent;
     --color-active: transparent;
-  --gray-color:#6b7b8f
+  --gray-color:#6b7b8f;
+  --color-primary:#1A325E;
 }
 
 .dark {

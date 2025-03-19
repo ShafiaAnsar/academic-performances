@@ -216,7 +216,7 @@ export const creators = [
   ];
   
   export const socialMedias = [
-    "All Social Medias",
+    "All Social Media",
     "Instagram",
     "TikTok",
     "YouTube",
