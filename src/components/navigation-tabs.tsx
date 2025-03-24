@@ -1,42 +1,44 @@
 "use client"
 
-import Link from "next/link"
+import { Link } from "@/navigation"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { LayoutGridIcon, BarChartIcon, MonitorIcon, NetworkIcon } from "lucide-react"
-
-const navigationTabs = [
-  {
-    id:1,
-    label: "Industries & Niches",
-    href: "/industry-niches",
-    icon: LayoutGridIcon,
-  },
-  {
-    id:2,
-    label: "Rankings",
-    href: "/rankings/leaderboard",
-    icon: BarChartIcon,
-  },
-  {
-    id:3,
-    label: "Industry Watch",
-    href: "#",
-    icon: MonitorIcon,
-  },
-  {
-    id:4,
-    label: "Network Watch",
-    href: "#",
-    icon: NetworkIcon,
-  }
-]
+import { useTranslations } from 'next-intl';
 
 export function NavigationTabs() {
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const t = useTranslations();
+
+  const navigationTabs = [
+    {
+      id: 1,
+      label: t('navigation.industriesNiches'),
+      href: "/industry-niches",
+      icon: LayoutGridIcon,
+    },
+    {
+      id: 2,
+      label: t('navigation.rankings'),
+      href: "/rankings/leaderboard",
+      icon: BarChartIcon,
+    },
+    {
+      id: 3,
+      label: t('navigation.industryWatch'),
+      href: "#",
+      icon: MonitorIcon,
+    },
+    {
+      id: 4,
+      label: t('navigation.networkWatch'),
+      href: "#",
+      icon: NetworkIcon,
+    }
+  ]
 
   return (
-    <nav className="border-b bg-white border-gray-200">
+    <nav className="border-b bg-white fixed top-14 sm:left-[110px] left-0 right-0 z-50 border-gray-200">
       <div className="flex flex-wrap px-6 gap-4 md:gap-8">
         {navigationTabs.map((tab) => (
           <Link

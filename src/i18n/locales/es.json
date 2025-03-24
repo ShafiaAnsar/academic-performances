@@ -1,0 +1,41 @@
+{
+  "common": {
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "register": "Regístrate gratis",
+    "tutorial": "Tutorial",
+    "leaderboard": "Tabla de clasificación",
+    "hallOfFame": "Salón de la Fama"
+  },
+  "auth": {
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "company": "Empresa",
+    "country": "País",
+    "language": "Idioma",
+    "phoneNumber": "Número de teléfono (opcional)",
+    "rememberMe": "Recordarme",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "createAccount": "Crear cuenta gratis",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "dontHaveAccount": "¿No tienes una cuenta?",
+    "termsAndConditions": "Acepto los Términos y Condiciones",
+    "newsletter": "Suscribirme al boletín y ofertas comerciales"
+  },
+  "navigation": {
+    "industriesNiches": "Industrias y Nichos",
+    "rankings": "Rankings",
+    "industryWatch": "Observatorio de Industria",
+    "networkWatch": "Observatorio de Red"
+  },
+  "rankings": {
+    "top100": "🏆 Top 100 Académicos · Mundial",
+    "areasOfStudy": "Áreas de Estudio",
+    "indicators": "Indicadores",
+    "country": "País",
+    "gender": "Género",
+    "worldwide": "Mundial"
+  }
+} 

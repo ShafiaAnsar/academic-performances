@@ -1,0 +1,41 @@
+{
+  "common": {
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "register": "Register for free",
+    "tutorial": "Tutorial",
+    "leaderboard": "Leaderboard",
+    "hallOfFame": "Hall of Fame"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "company": "Company",
+    "country": "Country",
+    "language": "Language",
+    "phoneNumber": "Phone number (optional)",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "createAccount": "Create account for Free",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "You don't have an account?",
+    "termsAndConditions": "Accept our Terms and Conditions",
+    "newsletter": "Subscribe to our newsletter and commercial offers"
+  },
+  "navigation": {
+    "industriesNiches": "Industries & Niches",
+    "rankings": "Rankings",
+    "industryWatch": "Industry Watch",
+    "networkWatch": "Network Watch"
+  },
+  "rankings": {
+    "top100": "🏆 Top 100 Academics · Worldwide",
+    "areasOfStudy": "Areas of Study",
+    "indicators": "Indicators",
+    "country": "Country",
+    "gender": "Gender",
+    "worldwide": "Worldwide"
+  }
+} 

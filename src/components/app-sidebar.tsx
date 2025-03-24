@@ -1,5 +1,5 @@
 'use client'
-import { ChartNoAxesColumn, Star } from "lucide-react"
+import { ChartNoAxesColumn, Star, Search } from "lucide-react"
 import { useState } from "react"
 import { usePathname } from 'next/navigation'
 import {
@@ -16,6 +16,12 @@ import { logo } from "../../public/images"
 // Menu items.
 const items = [
   {
+    title: "Discovery",
+    url: "/discovery",
+    icon: Search,
+  },
+  {
+
     title: "Rankings",
     url: "/rankings/leaderboard",
     icon: ChartNoAxesColumn,
@@ -34,7 +40,7 @@ export function AppSidebar() {
   return (
     <Sidebar 
       collapsible="icon"
-      className={`bg-white ${isHovered ? "" : "w-[110px]"} z-50`}
+      className={`bg-white ${isHovered ? "" : "w-[110px]"} z-110`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -54,7 +60,7 @@ export function AppSidebar() {
                     className={`${isHovered?'w-full' : 'w-fit mx-auto'} transition-colors hover:rounded-md`}
                   >
                     <a href={item.url} className="flex items-center gap-2 px-4 py-2">
-                      <item.icon className={`w-6 h-6 ${pathname.startsWith(item.url) ? 'text-white' : ''}`} />
+                      <item.icon className={`w-8 h-8 ${pathname.startsWith(item.url) ? 'text-white' : ''}`} />
                       <span className={`${!isHovered ? 'hidden' : 'block'} text-sm ${pathname.startsWith(item.url) ? 'text-white' : ''}`}>
                         {item.title}
                       </span>
