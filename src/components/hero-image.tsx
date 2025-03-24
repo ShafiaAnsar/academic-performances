@@ -1,4 +1,4 @@
-import {img2, img3, img4, img5, img6, img7 } from "@/public/images";
+import {img2, img3, img4, img5, img6, img7, onboarding } from "@/public/images";
 import Image from "next/image";
 
 export function HeroImage() {
@@ -30,7 +30,7 @@ export function HeroImage() {
           {leftImages.map((img, index) => (
             <div
               key={`left-${index}`}
-              className="absolute rounded-xl overflow-hidden shadow-lg animate-slide-in-left"
+              className="absolute rounded-xl overflow-hidden shadow-lg animate-slide-in-left hidden lg:block"
               style={{ 
                 top: img.top, 
                 left: img.left,
@@ -52,7 +52,7 @@ export function HeroImage() {
           {rightImages.map((img, index) => (
             <div
               key={`right-${index}`}
-              className="absolute rounded-xl overflow-hidden shadow-lg animate-slide-in-right"
+              className="absolute rounded-xl overflow-hidden shadow-lg animate-slide-in-right hidden lg:block"
               style={{ 
                 top: img.top, 
                 right: img.right,
@@ -69,6 +69,18 @@ export function HeroImage() {
               />
             </div>
           ))}
+          <div className=" rounded-xl bg-white/10 p-6 lg:hidden backdrop-blur-sm">
+                  <div className="relative">
+                    <Image
+                      src={onboarding}
+                      alt="Academic Rankings Dashboard"
+                      width={800}
+                      height={500}
+                      className="rounded-lg"
+                    />
+                    <div className="absolute inset-0 rounded-lg bg-black/10"></div>
+                  </div>
+                </div>
         </div>
       </div>
     </div>
