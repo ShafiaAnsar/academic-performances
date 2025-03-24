@@ -33,5 +33,14 @@ import youtube from './youtubeIcon.webp'
 import message from './message-icon.png'
 import linkedin from './linkedIn-Icon.png'
 
-export { person1, person2, person3, person4, person5, person6, person7, person8, person9, person10, us, badge, gold, silver, bronze,star, posBadge, logo,onboarding,discovery, instagram, tiktok, snapchat, twitter, youtube, message, linkedin}
+// hero images 
+import img1 from './img-1.png'
+import img2 from './img-2.png'
+import img3 from './img-3.png'
+import img4 from './img-4.png'
+import img5 from './img-5.png'
+import img6 from './img-6.png'
+import img7 from './img-7.png'
+
+export { person1, person2, person3, person4, person5, person6, person7, person8, person9, person10, us, badge, gold, silver, bronze,star, posBadge, logo,onboarding,discovery, instagram, tiktok, snapchat, twitter, youtube, message, linkedin, img1, img2, img3, img4, img5, img6, img7}
 

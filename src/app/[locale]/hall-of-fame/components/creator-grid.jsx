@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { academics } from "@/db"
+import { academics, creators } from "@/db"
 import { badge, star, us } from "@/public/images"
 import { RiSeedlingLine } from "react-icons/ri";
 import { PiHexagonDuotone } from "react-icons/pi";
@@ -7,7 +7,7 @@ import { PiHexagonDuotone } from "react-icons/pi";
 export function CreatorGrid() {
   return (
     <div className="mt-6 flex flex-wrap gap-4 items-center justify-center max-w-[90vw]">
-      {academics.slice(0, 5).map((creator) => (
+      {creators.slice(0, 5).map((creator) => (
         <div key={creator.id} className="relative bg-white shadow-lg rounded-xl p-4 sm:w-[200px]  w-full text-center border flex flex-col gap-4">
           
           {/* Avatar and Rank */}
@@ -62,7 +62,7 @@ export function CreatorGrid() {
 
           {/* Badges Section */}
           <div className="flex items-center justify-center ">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3">
               <div className="flex relative -rotate-12">
                 <PiHexagonDuotone className="absolute top-0 left-0" size={10} style={{ color: '#3fe4fc' }} />
                 <PiHexagonDuotone className="absolute top-0 right-0" size={10} style={{ color: '#fdcc47' }} />
@@ -72,7 +72,7 @@ export function CreatorGrid() {
               </div>
             <span className="text-sm font-medium">{creator.totalBadges}</span>
             </div>
-            {creator.badgesByRarity && Object.entries(creator.badgesByRarity).map(([rarity, count]) => (
+            {Object.entries(creator.badgesByRarity).map(([rarity, count]) => (
               <div key={rarity} className="flex items-center">
                 <PiHexagonDuotone 
                   size={16}
